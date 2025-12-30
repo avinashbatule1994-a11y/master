@@ -1,0 +1,6 @@
+<p>manage-listings works!</p>
+<div *ngFor="let item of listings">
+    <h4>{{item.name}} {{item.type}}</h4>
+    <p>Status:{{item.active?'Open':'Closed'}}</p>
+    <button (click)="toggle(item)">Toggle</button>
+</div>

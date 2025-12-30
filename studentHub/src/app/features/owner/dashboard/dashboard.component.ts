@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class OwnerDashboardComponent {
-
+selectedType:string='mess';
+selectType(type:string){
+  this.selectedType=type
+}
 }

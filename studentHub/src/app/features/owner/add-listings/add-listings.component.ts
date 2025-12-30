@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AddListingsComponent {
 
+  listing:any={
+    type:"mess",
+    name:"kolahpuri thaska",
+    city:"pune",
+    area:"narayan peth, patramarutichauk",
+    status:'active'
+  }
+  save(){
+    console.log("saved listing data",this.listing)
+    alert('saveed data successfully ')
+  }
 }
