@@ -15,6 +15,9 @@ import { ListingsDetailComponent } from './features/public/listings-detail/listi
 import { StudentDashboardComponent  } from './features/student/dashboard/dashboard.component';
 import { AddListingsComponent } from './features/owner/add-listings/add-listings.component';
 import { OwnerDashboardComponent } from './features/owner/dashboard/dashboard.component';
+import { ManageListingsComponent } from './features/owner/manage-listings/manage-listings.component';
+import { MenuComponent } from './features/owner/menu/menu.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,14 +29,18 @@ import { OwnerDashboardComponent } from './features/owner/dashboard/dashboard.co
     FooterComponent,
     ListingCardComponent,
     HomeComponent,
+    
     ListingsComponent,
     ListingsDetailComponent,
     StudentDashboardComponent ,
     OwnerDashboardComponent,
-    AddListingsComponent
+    AddListingsComponent,
+    ManageListingsComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
+     FormsModule,
     AppRoutingModule
   ],
   providers: [],
