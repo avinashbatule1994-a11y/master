@@ -9,6 +9,9 @@ import { OwnerLayoutComponent } from './layouts/owner-layout/owner-layout.compon
 import { ListingsComponent } from './features/public/listings/listings.component';
 import { StudentDashboardComponent } from './features/student/dashboard/dashboard.component';
 import { AddListingsComponent } from './features/owner/add-listings/add-listings.component';
+import { FavouritesComponent } from './features/student/favourites/favourites.component';
+import { SearchComponent } from './features/student/search/search.component';
+import { ListingDetailsComponent } from './features/student/listing-details/listing-details.component';
 
 export const routes: Routes = [
   {
@@ -23,7 +26,10 @@ export const routes: Routes = [
     path: 'student',
     component: StudentLayoutComponent,
     children: [
-      { path: 'dashboard', component: StudentDashboardComponent }
+      { path: 'dashboard', component: StudentDashboardComponent },
+      { path: 'favourites', component: FavouritesComponent },
+      { path: 'search', component: SearchComponent },
+      {path:"details/:id",component:ListingDetailsComponent}
     ]
   },
   {

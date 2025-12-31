@@ -18,9 +18,15 @@ import { OwnerDashboardComponent } from './features/owner/dashboard/dashboard.co
 import { ManageListingsComponent } from './features/owner/manage-listings/manage-listings.component';
 import { MenuComponent } from './features/owner/menu/menu.component';
 import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './features/student/search/search.component';
+import { ListingDetailsComponent } from './features/student/listing-details/listing-details.component';
+import { FavouritesComponent } from './features/student/favourites/favourites.component';
 
 @NgModule({
   declarations: [
+    FavouritesComponent,
+    ListingDetailsComponent,
+    SearchComponent,
     AppComponent,
     PublicLayoutComponent,
     StudentLayoutComponent,

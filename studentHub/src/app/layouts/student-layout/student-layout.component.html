@@ -1,13 +1,23 @@
 <app-header></app-header>
 
-<div class="layout">
+<!-- <div class="layout">
   <aside>
     <p>Student Menu</p>
     <a routerLink="/student/dashboard">Dashboard</a>
-    <a routerLink="/student/favorites">Favorites</a>
+    <a routerLink="/student/search">Favourites</a>
+    <a routerLink="/student/favourites">Favourites</a>
   </aside>
-
+<hr />
   <main>
     <router-outlet></router-outlet>
   </main>
-</div>
+</div> -->
+<nav>
+  <a routerLink="/student/dashboard">Dashboard</a>
+  <a routerLink="/student/search">Search</a>
+  <a routerLink="/student/favourites">Favorites</a>
+</nav>
+
+<hr />
+
+<router-outlet></router-outlet>

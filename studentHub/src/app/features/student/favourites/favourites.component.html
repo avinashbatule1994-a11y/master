@@ -1,0 +1,6 @@
+<h2>My Favorites</h2>
+
+<div *ngFor="let item of favorites; let i = index">
+  <h4>{{ item.name }}</h4>
+  <button (click)="remove(i)">Remove</button>
+</div>

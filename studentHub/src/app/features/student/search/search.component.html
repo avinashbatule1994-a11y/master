@@ -1,0 +1,32 @@
+<h2>Find Mess / Hostel / Library</h2>
+
+<select [(ngModel)]="city">
+  <option value="">Select City</option>
+  <option>Pune</option>
+  <option>Mumbai</option>
+</select>
+
+<select [(ngModel)]="area">
+  <option value="">Select Area</option>
+  <option>Hadapsar</option>
+  <option>Wakad</option>
+  <option>Andheri</option>
+</select>
+
+<select [(ngModel)]="type">
+  <option value="all">All</option>
+  <option value="mess">Mess</option>
+  <option value="hostel">Hostel</option>
+  <option value="library">Library</option>
+</select>
+
+<button (click)="search()">Search</button>
+
+<hr />
+
+<div *ngFor="let item of filtered">
+  <h4>{{ item.name }}</h4>
+  <p>{{ item.city }} - {{ item.area }}</p>
+  <p>Type: {{ item.type }}</p>
+  <a [routerLink]="['/student/details', item.id]">View</a>
+</div>

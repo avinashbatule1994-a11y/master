@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class StudentDashboardComponent {
-
+stats={
+  favourites:JSON.parse(localStorage.getItem('favourites') || "[]").length,
+  viewed:6,
+  contacted:2
+}
 }

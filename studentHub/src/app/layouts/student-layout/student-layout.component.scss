@@ -1,0 +1,18 @@
+.cards {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  padding: 16px;
+  border: 1px solid #ccc;
+  width: 150px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+nav a {
+  margin-right: 15px;
+  font-weight: bold;
+  text-decoration: none;
+}
