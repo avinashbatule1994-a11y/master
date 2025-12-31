@@ -12,6 +12,8 @@ import { AddListingsComponent } from './features/owner/add-listings/add-listings
 import { FavouritesComponent } from './features/student/favourites/favourites.component';
 import { SearchComponent } from './features/student/search/search.component';
 import { ListingDetailsComponent } from './features/student/listing-details/listing-details.component';
+import { ManageListingsComponent } from './features/owner/manage-listings/manage-listings.component';
+import { MenuComponent } from './features/owner/menu/menu.component';
 
 export const routes: Routes = [
   {
@@ -37,7 +39,9 @@ export const routes: Routes = [
     component: OwnerLayoutComponent,
     children: [
       { path: 'dashboard', component: OwnerDashboardComponent },
-      { path: 'add-listing', component: AddListingsComponent }
+      { path: 'add-listing', component: AddListingsComponent },
+      { path:'manage-listings', component: ManageListingsComponent },
+      { path:'menu', component: MenuComponent },
     ]
   }
 ];

@@ -1,7 +1,7 @@
 <h2>Owner Dashboard</h2>
 
 <div class="dashboard-cards">
-  <div class="dash-card">
+  <!-- <div class="dash-card">
     <h3>Total Listings</h3>
     <p>6</p>
   </div>
@@ -22,4 +22,25 @@
 <button (click)="selectType('hostel')">hostel</button>
 <button (click)="selectType('librory')">librory</button>
 </div>
-<p>{{selectedType}}</p>
+<p>{{selectedType}}</p> -->
+<h2>Owner Dashboard</h2>
+
+<p>Business Types:</p>
+<ul>
+  <li *ngFor="let b of ownerBusinesses">{{ b }}</li>
+</ul>
+
+<hr />
+
+<div class="dashboard-cards">
+  <div class="dash-card">Total Listings: {{ stats.totalListings }}</div>
+  <div class="dash-card">Active: {{ stats.active }}</div>
+  <div class="dash-card">Inactive: {{ stats.inactive }}</div>
+  <div class="dash-card">Views: {{ stats.totalViews }}</div>
+  <div class="dash-card">Contacts: {{ stats.totalContacts }}</div>
+</div>
+</div>
+<hr />
+
+<a routerLink="/owner/manage-listings">Manage Listings</a> |
+<a routerLink="/owner/add-listing">Add New</a>

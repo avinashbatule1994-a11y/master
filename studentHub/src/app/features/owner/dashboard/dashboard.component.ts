@@ -7,7 +7,16 @@ import { Component } from '@angular/core';
 })
 export class OwnerDashboardComponent {
 selectedType:string='mess';
+ownerBusinesses = ['mess', 'hostel', 'library'];
+  stats = {
+    totalListings: 5,
+    active: 3,
+    inactive: 2,
+    totalViews: 124,
+    totalContacts: 18
+  };
 selectType(type:string){
   this.selectedType=type
 }
+
 }
