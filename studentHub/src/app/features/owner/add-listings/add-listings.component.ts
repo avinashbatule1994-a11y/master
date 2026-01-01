@@ -6,16 +6,33 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-listings.component.scss']
 })
 export class AddListingsComponent {
+  listing = {
+    type: 'mess',
+    name: '',
+    city: '',
+    area: '',
+    images: [] as string[]
+  };
 
-  listing:any={
-    type:"mess",
-    name:"kolahpuri thaska",
-    city:"pune",
-    area:"narayan peth, patramarutichauk",
-    status:'active'
+  onImageSelect(event: any) {
+    const files = event.target.files;
+
+    for (let file of files) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.listing.images.push(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
   }
-  save(){
-    console.log("saved listing data",this.listing)
-    alert('saveed data successfully ')
+
+  removeImage(index: number) {
+    this.listing.images.splice(index, 1);
+  }
+
+  saveListing() {
+    console.log(this.listing);
+    alert('Listing saved (UI only)');
   }
 }
+

@@ -1,21 +1,41 @@
-<p>add-listings works!</p>
+<h2>Add Listing</h2>
 
-<form>
-    <label>Business Model</label>
-    <select [(ngModel)]="listing.type" name="type">
-        <option value="mess">Mess</option>
-        <option value="hostel">Hostel</option>
-        <option value="library">Library</option>
-    </select>
+<label>Type</label>
+<select [(ngModel)]="listing.type" name="type">
+  <option value="mess">Mess</option>
+  <option value="hostel">Hostel</option>
+  <option value="library">Library</option>
+</select>
 
-    <label>Name</label>
-    <input type="text" [(ngModel)]="listing.name" name="name"/>
-    <label>City</label>
-    <input type="text" [(ngModel)]="listing.city" name="city"/>
-     <label>Area</label>
-  <input type="text" [(ngModel)]="listing.area" name="area" />
-  <label>Upload Images</label>
-<input type="file" multiple />
+<br /><br />
 
-  <button (click)="save()">save</button>
-</form>
+<label>Name</label>
+<input type="text" [(ngModel)]="listing.name" name="name" />
+
+<br /><br />
+
+<label>City</label>
+<input type="text" [(ngModel)]="listing.city" name="city" />
+
+<br /><br />
+
+<label>Area</label>
+<input type="text" [(ngModel)]="listing.area" name="area" />
+
+<br /><br />
+
+<label>Upload Images</label>
+<input type="file" multiple (change)="onImageSelect($event)" />
+
+<hr />
+
+<div class="gallery">
+  <div class="img-card" *ngFor="let img of listing.images; let i = index">
+    <img [src]="img" />
+    <button (click)="removeImage(i)">Remove</button>
+  </div>
+</div>
+
+<br />
+
+<button (click)="saveListing()">Save Listing</button>
