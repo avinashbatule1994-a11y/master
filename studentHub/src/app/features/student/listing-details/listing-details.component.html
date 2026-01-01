@@ -1,18 +1,26 @@
 <h2>Listing Details</h2>
-
-<p>Listing ID: {{ listingId }}</p>
-
-<h3>Facilities</h3>
-<ul>
-  <li>WiFi</li>
-  <li>Water</li>
-  <li>Electricity</li>
-</ul>
-
-<h3>Food Menu (Mess)</h3>
-<p>Breakfast: Poha</p>
-<p>Lunch: Thali</p>
-<p>Dinner: Rice & Dal</p>
-
+<h2>{{listing ?.name}}</h2>
+<p>
+    <strong>
+        location:
+    </strong>
+    {{listing?.city}}-{{listing?.area}}
+</p>
 <button (click)="addToFavorites()">Add to Favorites</button>
 
+<p><strong>Status:</strong><span [style.color]="listing?.active ? 'green' :'red'">
+    {{listing?.active?'open':"closed"}}
+</span></p>
+<hr>
+<!-- 🍽️ MENU (ONLY FOR MESS) -->
+ <div *ngIf="listing?.type==='mess'">
+    <h3>Todays Menu</h3>
+    <div *ngIf="listing?.menu ?.enabled; else closedMenu">
+        <p>BreakFast :&nbsp; {{listing.menu.breakfast}}</p>
+        <p>Lunch :&nbsp; {{listing.menu.lunch}}</p>
+        <p>Dinner :&nbsp; {{listing.menu.dinner}}</p>
+    </div>
+    <ng-template #closedMenu>
+        <p style="color: red;">week took off its sunday</p>
+    </ng-template>
+ </div>
