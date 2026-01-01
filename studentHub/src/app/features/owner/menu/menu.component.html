@@ -1,4 +1,4 @@
-<h2>Daily Food Menu</h2>
+<!-- <h2>Daily Food Menu</h2>
 
 <label>Breakfast</label>
 <input [(ngModel)]="todayMenu.breakfast" />
@@ -9,4 +9,27 @@
 <label>Dinner</label>
 <input [(ngModel)]="todayMenu.dinner" />
 
-<button (click)="saveMenu()">Save Menu</button>
+<button (click)="saveMenu()">Save Menu</button> -->
+
+<h1>Daily Food Menu</h1>
+<label>
+    <input type="checkbox" [(ngModel)]="menuEnabled"/>
+    Menu Available today
+</label>
+<hr>
+<div *ngIf="menuEnabled; else closed">
+
+    <label>date &nbsp; </label> <br>
+    <input type="date" [(ngModel)]="todayMenu.date"/>
+   <br>
+    <label>Breakfast</label><br>
+    <input type="text" [(ngModel)]="todayMenu.breakfast"/>
+   <br> <label for="lunch">Lunch</label> <br>
+    <input type="text" [(ngModel)]="todayMenu.lunch"/>
+   <br> <label for="dinner">Dinner</label><br>
+    <input type="text" [(ngModel)]="todayMenu.dinner"/>
+<br><button (click)="saveMenu()">save menu</button>
+</div>
+<ng-template #closed>
+    <p style="color: red;">❌ mess is closed for today</p>
+</ng-template>

@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
+  menuEnabled:boolean=true;
   todayMenu = {
+    date:"",
     breakfast: '',
     lunch: '',
     dinner: '',
@@ -15,6 +17,9 @@ export class MenuComponent {
   saveMenu() {
     console.log(this.todayMenu);
     alert('Menu saved (dummy)');
+  }
+  toggleMenu(){
+this.menuEnabled=!this.menuEnabled
   }
 }
 
