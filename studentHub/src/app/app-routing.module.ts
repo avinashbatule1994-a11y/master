@@ -14,6 +14,7 @@ import { SearchComponent } from './features/student/search/search.component';
 import { ListingDetailsComponent } from './features/student/listing-details/listing-details.component';
 import { ManageListingsComponent } from './features/owner/manage-listings/manage-listings.component';
 import { MenuComponent } from './features/owner/menu/menu.component';
+import { RoleGuard } from './core/guards/role.guard';
 
 export const routes: Routes = [
   {
@@ -27,6 +28,8 @@ export const routes: Routes = [
   {
     path: 'student',
     component: StudentLayoutComponent,
+    canActivate:[RoleGuard],
+    data:{role:'student'},
     children: [
       { path: 'dashboard', component: StudentDashboardComponent },
       { path: 'favourites', component: FavouritesComponent },
@@ -37,6 +40,8 @@ export const routes: Routes = [
   {
     path: 'owner',
     component: OwnerLayoutComponent,
+        canActivate:[RoleGuard],
+    data:{role:'owner'},
     children: [
       { path: 'dashboard', component: OwnerDashboardComponent },
       { path: 'add-listing', component: AddListingsComponent },
