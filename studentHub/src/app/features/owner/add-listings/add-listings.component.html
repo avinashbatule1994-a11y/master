@@ -1,10 +1,10 @@
-<h2>Add Listing</h2>
+<h2>{{ isEdit ? 'Edit Listing' : 'Add Listing' }}</h2>
 
 <label>Type</label>
 <select [(ngModel)]="listing.type" name="type">
-  <option value="mess">Mess</option>
-  <option value="hostel">Hostel</option>
-  <option value="library">Library</option>
+    <option value="mess">Mess</option>
+    <option value="hostel">Hostel</option>
+    <option value="library">Library</option>
 </select>
 
 <br /><br />
@@ -30,12 +30,14 @@
 <hr />
 
 <div class="gallery">
-  <div class="img-card" *ngFor="let img of listing.images; let i = index">
-    <img [src]="img" />
-    <button (click)="removeImage(i)">Remove</button>
-  </div>
+    <div class="img-card" *ngFor="let img of listing.images; let i = index">
+        <img [src]="img" />
+        <button (click)="removeImage(i)">Remove</button>
+    </div>
 </div>
 
 <br />
 
-<button (click)="saveListing()">Save Listing</button>
+<button (click)="saveListing()">
+    {{ isEdit ? 'Update Listing' : 'Save Listing' }}
+</button>

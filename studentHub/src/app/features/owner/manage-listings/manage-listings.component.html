@@ -1,14 +1,6 @@
-<!-- <p>manage-listings works!</p>
-<div *ngFor="let item of listings">
-    <h4>{{item.name}} {{item.type}}</h4>
-    <p>Status:{{item.active?'Open':'Closed'}}</p>
-    <button (click)="toggle(item)">Toggle</button>
-</div> -->
+
 <h2>My Listings</h2>
-<!-- <p>Business Types:</p>
-<ul>
-  <li *ngFor="let b of ownerBusinesses">{{ b }}</li>
-</ul> -->
+
 
 <div class="cards">
 <div *ngFor="let item of listings" class="card">
@@ -17,5 +9,6 @@
   <button (click)="toggleStatus(item)">
     {{ item.active ? 'Deactivate' : 'Activate' }}
   </button>
+<a [routerLink]="['/owner/edit-listing', item.id]">Edit</a>
 </div>
 </div>

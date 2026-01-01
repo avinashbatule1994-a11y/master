@@ -40,6 +40,7 @@ export const routes: Routes = [
     children: [
       { path: 'dashboard', component: OwnerDashboardComponent },
       { path: 'add-listing', component: AddListingsComponent },
+      { path: 'edit-listing/:id', component: AddListingsComponent },
       { path:'manage-listings', component: ManageListingsComponent },
       { path:'menu', component: MenuComponent },
     ]
