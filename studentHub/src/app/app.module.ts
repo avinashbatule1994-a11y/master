@@ -23,6 +23,8 @@ import { ListingDetailsComponent } from './features/student/listing-details/list
 import { FavouritesComponent } from './features/student/favourites/favourites.component';
 import { StatsCardComponent } from './shared/component/stats-card/stats-card.component';
 import { LoginComponent } from './features/auth/login/login.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -51,9 +53,15 @@ import { LoginComponent } from './features/auth/login/login.component';
   imports: [
     BrowserModule,
      FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

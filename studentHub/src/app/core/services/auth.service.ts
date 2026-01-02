@@ -46,6 +46,7 @@
 //     return !!this.getRole()
 //   }
 // }
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 export type UserRole = 'student' | 'owner' | null;
@@ -54,6 +55,7 @@ export type UserRole = 'student' | 'owner' | null;
   providedIn: 'root'
 })
 export class AuthService {
+
 
   private roleKey = 'role';
   private tokenKey = 'token';
