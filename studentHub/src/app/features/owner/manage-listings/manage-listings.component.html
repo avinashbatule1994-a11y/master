@@ -1,5 +1,14 @@
 
 <h2>My Listings</h2>
+<app-listing-card
+  *ngFor="let item of listings"
+  [listing]="item"
+  [showActions]="true"
+  (edit)="editListing($event)"
+  (toggle)="toggleStatus($event)">
+</app-listing-card>
+<!-- 
+<h2>My Listings</h2>
 
 
 <div class="cards">
@@ -11,4 +20,4 @@
   </button>
 <a [routerLink]="['/owner/edit-listing', item.id]">Edit</a>
 </div>
-</div>
+</div> -->

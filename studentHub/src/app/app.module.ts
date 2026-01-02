@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './features/student/search/search.component';
 import { ListingDetailsComponent } from './features/student/listing-details/listing-details.component';
 import { FavouritesComponent } from './features/student/favourites/favourites.component';
+import { StatsCardComponent } from './shared/component/stats-card/stats-card.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { FavouritesComponent } from './features/student/favourites/favourites.co
     OwnerDashboardComponent,
     AddListingsComponent,
     ManageListingsComponent,
-    MenuComponent
+    MenuComponent,
+    StatsCardComponent
   ],
   imports: [
     BrowserModule,

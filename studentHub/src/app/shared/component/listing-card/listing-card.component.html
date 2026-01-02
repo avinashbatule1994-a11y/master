@@ -1,1 +1,18 @@
 <p>listing-card works!</p>
+<div class="card">
+  <h4>{{ listing.name }} ({{ listing.type }})</h4>
+  <p>{{ listing.city }} - {{ listing.area }}</p>
+
+  <p *ngIf="showActions">
+    Status:
+    <strong>{{ listing.active ? 'Active' : 'Inactive' }}</strong>
+  </p>
+
+  <div *ngIf="showActions" class="actions">
+    <button (click)="onToggle()">
+      {{ listing.active ? 'Deactivate' : 'Activate' }}
+    </button>
+
+    <button (click)="onEdit()">Edit</button>
+  </div>
+</div>

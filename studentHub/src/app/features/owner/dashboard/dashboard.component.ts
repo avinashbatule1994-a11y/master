@@ -20,3 +20,8 @@ selectType(type:string){
 }
 
 }
+// export class OwnerDashboardComponent {
+//   total = 5;
+//   active = 3;
+//   inactive = 2;
+// }

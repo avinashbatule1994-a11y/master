@@ -1,5 +1,3 @@
-<h2>Owner Dashboard</h2>
-
 <div class="dashboard-cards">
   <!-- <div class="dash-card">
     <h3>Total Listings</h3>
@@ -23,23 +21,49 @@
 <button (click)="selectType('librory')">librory</button>
 </div>
 <p>{{selectedType}}</p> -->
-<h2>Owner Dashboard</h2>
 
+
+
+  <h2>Owner Dashboard</h2>
+
+
+  <!-- 
 <p>Business Types:</p>
 <ul>
   <li *ngFor="let b of ownerBusinesses">{{ b }}</li>
-</ul>
+</ul> -->
 
-<hr />
-
+</div>
 <div class="dashboard-cards">
-  <div class="dash-card">Total Listings: {{ stats.totalListings }}</div>
+  <!-- <div class="dash-card">Total Listings: {{ stats.totalListings }}</div>
   <div class="dash-card">Active: {{ stats.active }}</div>
   <div class="dash-card">Inactive: {{ stats.inactive }}</div>
   <div class="dash-card">Views: {{ stats.totalViews }}</div>
   <div class="dash-card">Contacts: {{ stats.totalContacts }}</div>
+</div> -->
+  <div class="dash-card">
+    <app-stats-card title="Total Listings" [count]="stats.totalListings"></app-stats-card>
+  </div>
+  <div class="dash-card"> <app-stats-card title="Active Listings" [count]="stats.active"></app-stats-card>
+  </div>
+  <div class="dash-card"> <app-stats-card title="Inactive Listings" [count]="stats.inactive"></app-stats-card></div>
+  <div class="dash-card"> <app-stats-card title="TotalViews" [count]="stats.totalViews"></app-stats-card></div>
+  <div class="dash-card"> <app-stats-card title="totalContacts" [count]="stats.totalContacts"></app-stats-card></div>
+
+
 </div>
-</div>
+
+
+<!-- <h2>Owner Dashboard</h2> -->
+
+<!-- <div class="dash-card">
+  <app-stats-card title="Total Listings" [count]="stats.totalListings"></app-stats-card>
+  <app-stats-card title="Active Listings" [count]="stats.active"></app-stats-card>
+  <app-stats-card title="Inactive Listings" [count]="stats.inactive"></app-stats-card>
+  <app-stats-card title="TotalViews" [count]="stats.totalViews"></app-stats-card>
+  <app-stats-card title="totalContacts" [count]="stats.totalContacts"></app-stats-card>
+</div> -->
+
 <hr />
 
 <a routerLink="/owner/manage-listings">Manage Listings</a> |

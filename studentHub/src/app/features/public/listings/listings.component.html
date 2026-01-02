@@ -1,4 +1,4 @@
-<h2>Available Listings</h2>
+<!-- <h2>Available Listings</h2>
 
 <div class="list-grid">
   <app-listing-card
@@ -28,4 +28,10 @@
     [price]="2800"
     status="Closed"
   ></app-listing-card>
+</div> -->
+<div class="list-grid">
+  <app-listing-card
+    *ngFor="let item of listings"
+    [listing]="item">
+  </app-listing-card>
 </div>
