@@ -25,6 +25,9 @@ import { StatsCardComponent } from './shared/component/stats-card/stats-card.com
 import { LoginComponent } from './features/auth/login/login.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { LoaderInterceptor } from './core/interceptors/loader.interceptor';
+import { ErrorInterceptor } from './core/interceptors/error.interceptor';
+import { LoaderComponent } from './shared/component/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,8 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
     ManageListingsComponent,
     MenuComponent,
     StatsCardComponent,
-    LoginComponent
+    LoginComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +64,18 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
     {provide:HTTP_INTERCEPTORS,
       useClass:AuthInterceptor,
       multi:true
-    }
+    },
+    {
+  provide: HTTP_INTERCEPTORS,
+  useClass: LoaderInterceptor,
+  multi: true
+},
+    {
+  provide: HTTP_INTERCEPTORS,
+  useClass: ErrorInterceptor,
+  multi: true
+}
+
   ],
   bootstrap: [AppComponent]
 })
