@@ -11,12 +11,12 @@ export class HeaderComponent {
   constructor(private auth: AuthService, private router:Router) { }
 
 loginAsStudent(){
-  this.auth.setRole('student')
+  this.auth.loginAs('student')
   this.router.navigate(['/student/dashboard'])
 }
 
 loginOwner(){
-  this.auth.setRole('owner');
+  this.auth.loginAs('owner');
   this.router.navigate(['./owner/dashboard'])
 }
 

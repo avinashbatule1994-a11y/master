@@ -1,39 +1,44 @@
-// import { Injectable } from '@angular/core';
-// import { CanActivate, Router, ActivatedRouteSnapshot } from '@angular/router';
+import { Injectable } from "@angular/core";
+import { CanActivate, Router } from "@angular/router";
+import { AuthService } from "../services/auth.service";
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class RoleGuard implements CanActivate {
+@Injectable({
+    providedIn:'root'
+})
+export class RoleGuard implements CanActivate{
+constructor(
+    private auth:AuthService, 
+    private router:Router
+){}
+canActivate(route:any):boolean{
+const expectedRole=route.data['role'];
+const UserRole=this.auth.getRole();
+if(UserRole!==expectedRole){
+    this.router.navigate(['/']);
+    return false
+}
+return true
+}
 
-//   constructor(private router: Router) {}
+}
 
-//   canActivate(route: ActivatedRouteSnapshot): boolean {
+
+// import { inject } from "@angular/core";
+// import { CanActivateFn, Router } from "@angular/router";
+// export const RoleGuard: CanActivateFn = (route) => {
+//     const router = inject(Router);
 //     const expectedRole = route.data['role'];
 //     const currentRole = localStorage.getItem('role');
-
-//     if (currentRole === expectedRole) {
-//       return true;
+//     if (!expectedRole) {
+//         return true;
 //     }
-
-//     this.router.navigate(['/']);
-//     return false;
-//   }
+//     if (currentRole === expectedRole) {
+//         return true
+//     }
+//     return router.createUrlTree(['/unauthorized'])
 // }
-import { inject } from "@angular/core";
-import { CanActivateFn, Router } from "@angular/router";
-export const RoleGuard: CanActivateFn = (route) => {
-    const router = inject(Router);
-    const expectedRole = route.data['role'];
-    const currentRole = localStorage.getItem('role');
-    if (!expectedRole) {
-        return true;
-    }
-    if (currentRole === expectedRole) {
-        return true
-    }
-    return router.createUrlTree(['/unauthorized'])
-}
+
+
 //             Route opened
 //             ↓
 //             Does route have role?

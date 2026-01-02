@@ -1,21 +1,24 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  templateUrl: './home.component.html'
 })
 export class HomeComponent {
 
-  constructor(private router: Router) {}
+  constructor(
+    private auth: AuthService,
+    private router: Router
+  ) {}
 
-  setRole(role: string) {
-    localStorage.setItem('role', role);
+  login(role: 'student' | 'owner') {
+    this.auth.loginAs(role);
 
     if (role === 'student') {
       this.router.navigate(['/student/dashboard']);
-    } else if (role === 'owner') {
+    } else {
       this.router.navigate(['/owner/dashboard']);
     }
   }
