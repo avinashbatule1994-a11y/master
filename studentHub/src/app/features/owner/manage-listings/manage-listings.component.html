@@ -6,6 +6,8 @@
   [showActions]="true"
   (edit)="editListing($event)"
   (toggle)="toggleStatus($event)">
+<a [routerLink]="['/owner/edit-listing', item.id]">Edit</a>
+
 </app-listing-card>
 <!-- 
 <h2>My Listings</h2>
