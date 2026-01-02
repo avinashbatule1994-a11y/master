@@ -15,8 +15,10 @@ import { ListingDetailsComponent } from './features/student/listing-details/list
 import { ManageListingsComponent } from './features/owner/manage-listings/manage-listings.component';
 import { MenuComponent } from './features/owner/menu/menu.component';
 import { RoleGuard } from './core/guards/role.guard';
+import { LoginComponent } from './features/auth/login/login.component';
 
 export const routes: Routes = [
+
   {
     path: '',
     component: PublicLayoutComponent,
@@ -25,6 +27,7 @@ export const routes: Routes = [
       { path: 'listings', component: ListingsComponent }
     ]
   },
+    {path:"login", component:LoginComponent},
   {
     path: 'student',
     component: StudentLayoutComponent,

@@ -22,6 +22,7 @@ import { SearchComponent } from './features/student/search/search.component';
 import { ListingDetailsComponent } from './features/student/listing-details/listing-details.component';
 import { FavouritesComponent } from './features/student/favourites/favourites.component';
 import { StatsCardComponent } from './shared/component/stats-card/stats-card.component';
+import { LoginComponent } from './features/auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { StatsCardComponent } from './shared/component/stats-card/stats-card.com
     AddListingsComponent,
     ManageListingsComponent,
     MenuComponent,
-    StatsCardComponent
+    StatsCardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
