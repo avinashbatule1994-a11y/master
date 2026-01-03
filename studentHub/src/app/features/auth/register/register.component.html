@@ -1,0 +1,39 @@
+<h2>Register</h2>
+
+<form>
+  <input
+    type="text"
+    [(ngModel)]="name"
+    name="name"
+    placeholder="Name"
+    autocomplete="name"
+  />
+
+  <input
+    type="email"
+    [(ngModel)]="email"
+    name="email"
+    placeholder="Email"
+    autocomplete="email"
+  />
+
+  <input
+    type="password"
+    [(ngModel)]="password"
+    name="password"
+    placeholder="Password"
+    autocomplete="new-password"
+  />
+
+  <select [(ngModel)]="role" name="role"> role
+    <option value="student">Student</option>
+    <option value="owner">Owner</option>
+  </select>
+
+  <button type="button" (click)="register()">Register</button>
+
+  <p>
+    Already have an account?
+    <a routerLink="/login">Login</a>
+  </p>
+</form>

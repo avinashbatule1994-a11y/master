@@ -28,6 +28,7 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { LoaderInterceptor } from './core/interceptors/loader.interceptor';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { LoaderComponent } from './shared/component/loader/loader.component';
+import { RegisterComponent } from './features/auth/register/register.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { LoaderComponent } from './shared/component/loader/loader.component';
     MenuComponent,
     StatsCardComponent,
     LoginComponent,
-    LoaderComponent
+    LoaderComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

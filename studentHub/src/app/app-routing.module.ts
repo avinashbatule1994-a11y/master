@@ -16,6 +16,7 @@ import { ManageListingsComponent } from './features/owner/manage-listings/manage
 import { MenuComponent } from './features/owner/menu/menu.component';
 import { RoleGuard } from './core/guards/role.guard';
 import { LoginComponent } from './features/auth/login/login.component';
+import { RegisterComponent } from './features/auth/register/register.component';
 
 export const routes: Routes = [
 
@@ -23,36 +24,61 @@ export const routes: Routes = [
     path: '',
     component: PublicLayoutComponent,
     children: [
-      { path: '', component: HomeComponent },
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      {
+        path: "login",
+        component: LoginComponent,
+        // canActivate: [RoleGuard]
+      },
+      {path:"register",component:RegisterComponent},
+      { path: 'home', component: HomeComponent },
       { path: 'listings', component: ListingsComponent }
     ]
   },
-    {path:"login", component:LoginComponent},
   {
-    path: 'student',
-    component: StudentLayoutComponent,
-    canActivate:[RoleGuard],
-    data:{role:'student'},
-    children: [
-      { path: 'dashboard', component: StudentDashboardComponent },
-      { path: 'favourites', component: FavouritesComponent },
-      { path: 'search', component: SearchComponent },
-      {path:"details/:id",component:ListingDetailsComponent}
-    ]
-  },
-  {
-    path: 'owner',
-    component: OwnerLayoutComponent,
-        canActivate:[RoleGuard],
-    data:{role:'owner'},
-    children: [
-      { path: 'dashboard', component: OwnerDashboardComponent },
-      { path: 'add-listing', component: AddListingsComponent },
-      { path: 'edit-listing/:id', component: AddListingsComponent },
-      { path:'manage-listings', component: ManageListingsComponent },
-      { path:'menu', component: MenuComponent },
-    ]
-  }
+  path: 'student',
+  component: StudentLayoutComponent,
+  canActivate: [RoleGuard],
+  data: { role: 'student' },
+  children: [
+    { path: 'dashboard', component: StudentDashboardComponent }
+  ]
+},
+{
+  path: 'owner',
+  component: OwnerLayoutComponent,
+  canActivate: [RoleGuard],
+  data: { role: 'owner' },
+  children: [
+    { path: 'dashboard', component: OwnerDashboardComponent }
+  ]
+}
+
+  // {
+  //   path: 'student',
+  //   component: StudentLayoutComponent,
+  //   canActivate: [RoleGuard],
+  //   data: { role: 'student' },
+  //   children: [
+  //     { path: 'dashboard', component: StudentDashboardComponent },
+  //     { path: 'favourites', component: FavouritesComponent },
+  //     { path: 'search', component: SearchComponent },
+  //     { path: "details/:id", component: ListingDetailsComponent }
+  //   ]
+  // },
+  // {
+  //   path: 'owner',
+  //   component: OwnerLayoutComponent,
+  //   canActivate: [RoleGuard],
+  //   data: { role: 'owner' },
+  //   children: [
+  //     { path: 'dashboard', component: OwnerDashboardComponent },
+  //     { path: 'add-listing', component: AddListingsComponent },
+  //     { path: 'edit-listing/:id', component: AddListingsComponent },
+  //     { path: 'manage-listings', component: ManageListingsComponent },
+  //     { path: 'menu', component: MenuComponent },
+  //   ]
+  // }
 ];
 
 

@@ -10,18 +10,18 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class HeaderComponent {
   constructor(private auth: AuthService, private router:Router) { }
 
-loginAsStudent(){
-  this.auth.loginAs('student')
-  this.router.navigate(['/student/dashboard'])
-}
+// loginAsStudent(){
+//   this.auth.loginAs('student')
+//   this.router.navigate(['/student/dashboard'])
+// }
 
-loginOwner(){
-  this.auth.loginAs('owner');
-  this.router.navigate(['./owner/dashboard'])
-}
+// loginOwner(){
+//   this.auth.loginAs('owner');
+//   this.router.navigate(['./owner/dashboard'])
+// }
 
-logout(){
-  this.auth.logout();
-  this.router.navigate(['/'])
-}
+// logout(){
+//   this.auth.logout();
+//   this.router.navigate(['/'])
+// }
 }

@@ -1,42 +1,63 @@
-import { Injectable } from "@angular/core";
-import { CanActivate, Router } from "@angular/router";
-import { AuthService } from "../services/auth.service";
+// import { Injectable } from "@angular/core";
+// import { CanActivate, Router } from "@angular/router";
+// import { AuthService } from "../services/auth.service";
+
+// @Injectable({
+//     providedIn:'root'
+// })
+// export class RoleGuard implements CanActivate{
+// constructor(
+//     private auth:AuthService, 
+//     private router:Router
+// ){}
+//  canActivate(): boolean {
+//     if (this.auth.isAuthenticated()) {
+//       const role = this.auth.getRole();
+//       this.router.navigate(
+//         role === 'student' ? ['/student/dashboard'] : ['/owner/dashboard']
+//       );
+//       return false;
+//     }
+//     return true;
+//   }
+// }
+
+import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Injectable({
-    providedIn:'root'
+  providedIn: 'root'
 })
-export class RoleGuard implements CanActivate{
-constructor(
-    private auth:AuthService, 
-    private router:Router
-){}
-canActivate(route:any):boolean{
-const expectedRole=route.data['role'];
-const UserRole=this.auth.getRole();
-if(UserRole!==expectedRole){
-    this.router.navigate(['/']);
-    return false
-}
-return true
+export class RoleGuard implements CanActivate {
+
+  constructor(
+    private auth: AuthService,
+    private router: Router
+  ) {}
+
+  canActivate(route: ActivatedRouteSnapshot): boolean {
+    // ❌ Not logged in
+    if (!this.auth.isAuthenticated()) {
+      this.router.navigate(['/login']);
+      return false;
+    }
+
+    const expectedRole = route.data['role'];
+    const userRole = this.auth.getRole();
+
+    // ❌ Role mismatch
+    if (expectedRole && expectedRole !== userRole) {
+      this.router.navigate(['/login']);
+      return false;
+    }
+
+    // ✅ Allowed
+    return true;
+  }
 }
 
-}
 
-
-// import { inject } from "@angular/core";
-// import { CanActivateFn, Router } from "@angular/router";
-// export const RoleGuard: CanActivateFn = (route) => {
-//     const router = inject(Router);
-//     const expectedRole = route.data['role'];
-//     const currentRole = localStorage.getItem('role');
-//     if (!expectedRole) {
-//         return true;
-//     }
-//     if (currentRole === expectedRole) {
-//         return true
-//     }
-//     return router.createUrlTree(['/unauthorized'])
-// }
 
 
 //             Route opened

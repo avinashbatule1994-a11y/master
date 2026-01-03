@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/core/services/auth.service';
-import { Router } from '@angular/router';
+// import { AuthService } from 'src/app/core/services/auth.service';
+// import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,18 +8,18 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
 
-  constructor(
-    private auth: AuthService,
-    private router: Router
-  ) {}
+  // constructor(
+  //   private auth: AuthService,
+  //   private router: Router
+  // ) {}
 
-  login(role: 'student' | 'owner') {
-    this.auth.loginAs(role);
+  // login(role: 'student' | 'owner') {
+  //   this.auth.loginAs(role);
 
-    if (role === 'student') {
-      this.router.navigate(['/student/dashboard']);
-    } else {
-      this.router.navigate(['/owner/dashboard']);
-    }
-  }
+  //   if (role === 'student') {
+  //     this.router.navigate(['/student/dashboard']);
+  //   } else {
+  //     this.router.navigate(['/owner/dashboard']);
+  //   }
+  // }
 }
